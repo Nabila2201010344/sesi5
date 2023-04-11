@@ -1,0 +1,24 @@
+<?php
+    include("konfigurasi.php");
+   
+  $cnn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME,DBPORT);
+
+  if($cnn){
+    $tbel = "tbMK";
+    $sql ="CREATE TABLE $tbel(
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        kodemk VARCHAR(8),
+        nimmatakuliah VARCHAR(50),
+        sks INT
+       
+    )";
+    $hasil = mysqli_query($cnn, $sql);
+    if($hasil){
+        echo"pembuatan tabel " . $tbel ." SUKSES";
+    }else{
+        echo"pembuatan tabel ". $tbel ." gagal";
+  }
+}else{
+    echo "koneksi ke mysql gagal";
+}
+  
